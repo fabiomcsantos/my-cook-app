@@ -1,7 +1,8 @@
-import {View, Text, ScrollView} from 'react-native';
+import { useState } from 'react';
+import {View, Text, ScrollView, Alert} from 'react-native';
 import {styles} from './styles';
 import { Ingredient } from '@/components/ingredient';
-import { useState } from 'react';
+import { Selected } from '@/components/selected'
 
 export default function Home(){
 
@@ -12,7 +13,13 @@ export default function Home(){
             return setSelected( (state) => state.filter( (item) => item !== value))
         }
         setSelected( (state) => [...state, value])
+    }
 
+    function handleClearSelected(){
+        Alert.alert("Limpar", "Deseja limpar tudo?", [
+            {text: "Não", style: "cancel"},
+            {text: "Sim", onPress: () => setSelected([])},
+        ])
     }
 
 
@@ -33,7 +40,13 @@ export default function Home(){
                     <Ingredient key={index} image="maça" name="Maçã" selected={selected.includes(String(index))} onPress={() => handleToggleSelected(String(index))} />
                 ))}
             </ScrollView>
-
+            {selected.length > 0 &&
+                <Selected
+                    quantity={selected.length}
+                    onClear={handleClearSelected}
+                    onSearch={() => {}}
+                />
+            }
         </View>
     )
 }
