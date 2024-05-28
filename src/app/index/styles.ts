@@ -1,12 +1,12 @@
-import {StyleSheet} from "react-native";
-import {theme} from '@/theme';
+import { StyleSheet } from "react-native";
+import { theme } from '@/theme';
 
 export const styles = StyleSheet.create({
     container:{
         flex:1,
-        padding: 42
-    },
-    title:{
+        padding: 24
+    }, 
+    title: {
         fontSize: theme.fonts.size.heading.xl,
         fontFamily: theme.fonts.family.bold,
         lineHeight: 44,
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.family.regular,
         color: theme.colors.gray_400,
         marginTop: 12,
-        marginBottom: 38,
+        marginBottom:38,
     },
     ingredients:{
         flexWrap: "wrap",

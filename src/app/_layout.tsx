@@ -1,4 +1,4 @@
-import {Slot} from 'expo-router';
+import { Slot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 
@@ -6,31 +6,31 @@ import {
     useFonts,
     Poppins_400Regular,
     Poppins_500Medium,
-    Poppins_700Bold,
-
+    Poppins_700Bold,    
 } from '@expo-google-fonts/poppins'
 
 SplashScreen.preventAutoHideAsync()
 
 export default function Layout(){
-
     const [fontsLoaded] = useFonts({
         Poppins_400Regular,
         Poppins_500Medium,
-        Poppins_700Bold,
+        Poppins_700Bold,  
     })
 
     if(!fontsLoaded){
-        return 
+        return
     }
 
     SplashScreen.hideAsync()
 
-    return (
-        <>
-        <StatusBar style='dark' />
-        <Slot/>
-        </>
-    )
 
+    return (
+        <>  
+            <StatusBar style='dark' />
+            <Slot /> 
+        </>
+
+    )
+    
 }
